@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { View } from "react-native";
 
-export default function Row({ children }: { children?: ReactNode }) {
+export default function Row({ children }: { children?: ReactNode | undefined }) {
   return (
     <View
       style={{

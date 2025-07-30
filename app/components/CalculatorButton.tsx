@@ -2,10 +2,11 @@ import React from "react"
 import { Text, TouchableOpacity } from "react-native"
 
 interface CalculatorButtonProps {
-  text: string
+  buttonTitle: string,
+  handlePress: (buttonTitle: string) => void
 }
 
-const CalculatorButton: React.FC<CalculatorButtonProps> = ({ text }) => {
+const CalculatorButton: React.FC<CalculatorButtonProps> = ({ buttonTitle, handlePress }) => {
   return (
     <TouchableOpacity
       style={{
@@ -17,8 +18,10 @@ const CalculatorButton: React.FC<CalculatorButtonProps> = ({ text }) => {
         justifyContent: "center",
         alignItems: "center",
       }}
+      onPress={() => handlePress(buttonTitle)}
+      testID={buttonTitle}
     >
-      <Text style={{ fontSize: 25 }}>{text}</Text>
+      <Text style={{ fontSize: 25 }}>{buttonTitle}</Text>
     </TouchableOpacity>
   )
 }
